@@ -1,0 +1,23 @@
+syntax = "proto3";
+
+option go_package = "proto";
+
+enum GreetType {
+  Hello = 0;
+  Hi = 1;
+  GoodMorning = 2;
+  GoodEvening = 3;
+}
+
+message GreetRequest {
+  GreetType type = 1;
+  string name = 2;
+};
+
+message GreetResponse {
+  string greeting = 1;
+};
+
+service Greeter {
+  rpc Greet (GreetRequest) returns (GreetResponse);
+};
